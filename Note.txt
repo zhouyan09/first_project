@@ -1,0 +1,2 @@
+[ERROR] [1499841826.450834276]: FCU: DL and GPS lost: flight termination
+
