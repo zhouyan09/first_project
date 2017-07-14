@@ -1,0 +1,22 @@
+function U = getallinput(x,nei)
+[M,N] = size(x);
+
+
+global safe_dis;
+for i = 1:M
+    
+    if(norm(x(nei(i,1))-x(nei(i,2))) > safe_dis )
+        
+             U(i,:) = getdirection(x(nei(i,1)),x(nei(i,2))) - x(i,:);
+    elseif(abs(norm(x(nei(i,1))-x(nei(i,2))) - safe_dis) < 0.01)
+            U(i,:) = 0;
+    else
+    %% 
+    diverse 
+        
+        
+    U(i,:) = getdirection(x(nei(i,1)),x(nei(i,2))) - x(i,:);
+end
+    
+end
+
