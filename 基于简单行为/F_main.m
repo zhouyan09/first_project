@@ -3,15 +3,19 @@ clc;
 close all;
 
 R=200;
-N = 3;
+N = 9;
 time = 0.25;
 count = 0;
  dimen=2;%X 与Y两个维度
  %x=R*rand(N,dimen);
- x(:,1) = R * cos(rand(N,1));
- x(:,2) = R * sin(rand(N,1));
+ rand_temp = [0:2*pi/N:2*pi-2*pi/N].' + 1* rand(N,1);
+ 
+ x(:,1) = R * cos(rand_temp)+20*rand(N,1);
+ x(:,2) = R * sin(rand_temp)+ 30*rand(N,1);
+ 
+ 
  global safe_dis;
- safe_dis = 2;
+ safe_dis = 10;
  %get the neighbodhoods 
  endtime=1000;
  re=zeros(N,dimen,endtime/time+1);
@@ -29,7 +33,7 @@ count = 0;
 Uonce = getallinput(x,nei);
  
 
-x = x + Uonce * 0.1;
+x = x + Uonce * time;
 
 
  count = count +1;
